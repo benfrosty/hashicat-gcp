@@ -114,6 +114,7 @@ resource "null_resource" "configure-cat-app" {
       timeout     = "300s"
       private_key = tls_private_key.ssh-key.private_key_pem
       host        = google_compute_instance.hashicat.network_interface.0.access_config.0.nat_ip
+      department  = "devops"
     }
   }
 }
