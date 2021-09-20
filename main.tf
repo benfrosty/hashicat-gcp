@@ -115,8 +115,10 @@ resource "null_resource" "configure-cat-app" {
       private_key = tls_private_key.ssh-key.private_key_pem
       host        = google_compute_instance.hashicat.network_interface.0.access_config.0.nat_ip
     }
-    labels      = {
-        department  = "devops"
-      } 
+    resource "google_compute_instance" "hashicat" {
+      labels      = {
+          department  = "devops"
+        } 
+    }
   }
 }
